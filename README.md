@@ -1,4 +1,5 @@
-v202601114a is the lkatest version!
+v202601114a is the latest version!
+
 This tool is also described at WorkWebs.com  
 Cue management tools are incldued for building and running cues using OSC to control one or more instance of REAPER,
 X/M32, Behringer Wing systems.
