@@ -16,6 +16,7 @@ Each new release adds some functionality, but in recent releases old Cues work w
 Enjoy!
 
 *** Use the 20250512 RELEASE content for REAPER mixing and Open Stage Control code and samples.
+
 *** Use the 20260114 RELEASE content for mixing with X/M32 + WING and recording / playback from REAPER.
 
 CHANGELOG:
