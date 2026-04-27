@@ -1,6 +1,12 @@
-v202601114a is the latest version!
+v20260423a is the latest release!
 
-This tool is also described at WorkWebs.com  
+Now is for 2 WING racks and 1 X32 and added a SOLO Mixing Station configuration tool
+
+
+
+v202601114a 
+
+This tool is also described at WorkWebs.com
 
 Cue management tools are incldued for building and running cues using OSC to control one or more instance of REAPER,
 X/M32, Behringer Wing systems.
@@ -26,9 +32,10 @@ Inlcuded are web scripts for REAPER to manage track muting and level adjustments
 Each new release adds some functionality, but in recent releases old Cues work with new Cues...but the old scripts also still work.
 Enjoy!
 
-*** Use the 20250512 RELEASE content for REAPER mixing and Open Stage Control code and samples.
+\*\*\* Use the 20250512 RELEASE content for REAPER mixing and Open Stage Control code and samples.
 
-*** Use the 20260114 RELEASE content for mixing with X/M32 + WING and recording / playback from REAPER.
+\*\*\* Use the 20260114 RELEASE content for mixing with X/M32 + WING and recording / playback from REAPER.
+
 
 
 CHANGELOG:
@@ -38,6 +45,7 @@ Changes made in the 20260114a release (sample is for mixing in WING+X32 with REA
 VB Matrix Coconut virtual Windows audio Driver to allow recording 128 inputs to REAPER and allowing playback for the same.
 
 Routing and Samples for combining 2 x32s and 1 WING with the VB Matrix Coconut and REAPER combo.
+
 
 
 Changes made in the 20250811a release:
@@ -101,3 +109,4 @@ New REAPER OSC definitions file to eliminate plugin and plugin parameter informa
 You are now encouraged to creatively design your work space with REAPER routing.
 
 You are also encouraged to add and remove overlays over unused screen areas and to select colors for used track overlays to help you distinguish sections that you have created.
+
