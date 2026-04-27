@@ -1,10 +1,10 @@
 v20260423a is the latest release!
 
-Now is for 2 WING racks and 1 X32 and added a SOLO Mixing Station configuration tool
+Now is for 2 WING racks and 1 X32 and added a SOLO Mixing Station configuration tool as well as mixing station configs for the WING racks.
 
 
 
-v202601114a 
+v202601114a
 
 This tool is also described at WorkWebs.com
 
