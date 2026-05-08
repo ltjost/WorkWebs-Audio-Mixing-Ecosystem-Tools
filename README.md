@@ -1,3 +1,5 @@
+May 8 2026 - added a new Mixing Station config file for the WINGs
+
 v20260423a is the latest release!
 
 Now is for 2 WING racks and 1 X32 and added a SOLO Mixing Station configuration tool as well as mixing station configs for the WING racks.
