@@ -1,0 +1,41 @@
+time 0 
+/mtx/8/name ,s "*V GFTRAD setup running" 
+/bus/2/mute ,i 0 
+/bus/3/mute ,i 0 
+/cfg/amix/x ,i 0 
+/ch/2/mute ,i 1 
+/ch/5/mute ,i 0 
+/ch/6/mute ,i 0 
+/ch/7/mute ,i 0 
+/ch/8/mute ,i 0 
+/ch/9/mute ,i 0 
+/ch/10/mute ,i 0 
+/ch/11/mute ,i 0 
+/ch/12/mute ,i 0 
+/ch/13/mute ,i 1 
+/ch/14/mute ,i 1 
+/ch/15/mute ,i 1 
+/ch/16/mute ,i 1 
+/ch/15/mute ,i 1 
+/ch/17/mute ,i 1 
+/ch/18/mute ,i 1 
+/ch/19/mute ,i 1 
+/ch/20/mute ,i 1 
+/ch/21/mute ,i 1 
+/ch/22/mute ,i 1 
+/ch/36/mute ,i 1 
+/ch/23/mute ,i 1 
+/ch/24/mute ,i 1 
+/ch/25/mute ,i 1 
+/ch/26/mute ,i 1 
+/ch/27/mute ,i 1 
+/ch/28/mute ,i 1 
+/ch/29/mute ,i 1 
+/ch/30/mute ,i 1 
+/ch/31/mute ,i 1 
+/ch/32/mute ,i 1 
+/ch/33/mute ,i 1 
+/ch/34/mute ,i 1 
+/ch/35/mute ,i 1 
+/mtx/8/name ,s "V GFTRAD setup done" 
+kill

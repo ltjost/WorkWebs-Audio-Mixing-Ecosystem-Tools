@@ -1,0 +1,496 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LJ3 Track Muter and Volume Adjuster for REAPER</title>
+
+<style type="text/css">
+body {
+  background-color:#333333;
+  color:#A9ABAB;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 12px;
+}
+
+div.green {
+  background-color:#333333;
+  color:#A9ABAB;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 12px;
+}
+
+table,th,td {
+  background-color:#222222;
+  color:#A9ABAB;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 12px;
+  border: 2px ridge white;
+  border-collapse: collapse;
+  border-color: #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+td.green {
+  background-color:#222222;
+  color:#00cc00;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px ridge white;
+  border-collapse: collapse; 
+  border-color: #dddddd;
+  padding: 5px;
+  text-align: left;
+}
+td.blue {
+  background-color:#222222;
+  color:#ccccff;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 16px;
+  border: 2px ridge white;
+  border-collapse: collapse;
+  border-color: #dddddd;
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+}
+td.left {
+  background-color:#222222;
+  color:#A9ABAB;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 12px;
+  border: 2px ridge white;
+  border-collapse: collapse;
+  border-color: #dddddd;
+  padding: 5px;
+  text-align: left;
+}
+
+
+button {
+  background-color: #cccccc;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 12px;
+  
+}
+
+td.name {
+  background-color:#eeeeee;
+  color:#000000;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 16px;
+  font-weight: light;
+  border: 2px ridge white;
+  border-collapse: collapse; 
+  border-color: #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+td.namemuted {
+  background-color:#eeaaaa;
+  color:#000000;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 14px;
+  font-weight: light;
+  border: 2px ridge red;
+  border-collapse: collapse; 
+  border-color: #ffaaaa;
+  padding: 5px;
+  text-align: center;
+}
+
+button.green  {
+  background-color: #00cc00;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 12px;
+  
+}
+
+
+
+</style>
+
+<script src="main.js"></script>
+
+<script type="text/javascript">
+
+
+
+var tracknum=[];
+var trackname=[];
+var trackflags=[];
+var trackvolume=[];
+var trackcolor=[];
+var db_value;
+var mainstring=null;
+var FilterString=null;
+
+var mutemainstring=null;
+var MuteFilterString=null;
+var MuteRowString=10;
+
+
+
+
+function wwr_onreply(results) {
+  
+  var ar = results.split("\n");
+ 
+  for (var x=0;x<ar.length;x++) {
+    var tok = ar[x].split("\t");
+	
+	
+    if (tok.length > 0) switch (tok[0]) {
+	  
+  
+  case "TRACK":
+	if (tok[1] == 0) {
+        tracknum.length=0;
+		trackname.length=0;
+		trackflags.length=0;
+		trackvolume.length=0;
+        trackcolor.length=0;
+    }
+        if (tok.length > 2) {
+		 tracknum.push(tok[1]); /* this is the number of the track */
+		 trackname.push(tok[2]); /* This is the name  of the track */
+         trackflags.push(tok[3]); /* Folder. selected, has fx, etc. */
+         trackvolume.push(tok[4]); /* 0=-inf, 1=+0dB... */
+         
+   
+         
+         var mycolor=("#" + (tok[13]|0x1000000).toString(16).substr(-6));
+     
+         trackcolor.push(mycolor);
+        }
+      break;
+  
+    }
+  }
+  
+/* alert(trackname); */
+
+
+	
+	
+	mainstring="<table>";
+
+	mainstring+="<tr>";
+	
+
+	mainstring+="<th>Track Number</th>";
+	
+
+    mainstring+="<th>-6 dB</th>";
+    mainstring+="<th>-5 dB</th>";
+    mainstring+="<th>-4 dB</th>";
+    mainstring+="<th>-3 dB</th>";
+	
+					
+    mainstring+="<th>-2 dB</th>";
+    mainstring+="<th>-1 dB</th>";
+    mainstring+="<th>MUTE</th>";
+	
+
+    mainstring+="<th>NAME and CURRENT info</th>";
+    mainstring+="<th>UNMUTE</th>";
+    mainstring+="<th>+1 dB</th>";
+    mainstring+="<th>+2 dB</th>";
+    mainstring+="<th>+3 dB</th>";
+    mainstring+="<th>+4 dB</th>";
+    mainstring+="<th>+5 dB</th>"; 
+    mainstring+="<th>+6 dB</th>";
+    mainstring+="</tr>";
+	
+
+    
+    for (var xx=0;xx<tracknum.length;xx++)
+    {
+	  var muted=parseInt(trackflags[xx]&8);
+	  var folder=parseInt(trackflags[xx]&1);
+      var xxx;
+      
+      
+      xxx=trackname[xx].includes(FilterString);
+      if (xxx || (FilterString == null)) {
+          
+    
+      
+ 
+  
+      
+      
+	  
+      mainstring+="<tr><td style=\'background-color:"+trackcolor[xx]+"\'>"+tracknum[xx]+"</td>";
+
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-6\')\">-6 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-5\')\">-5 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-4\')\">-4 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-3\')\">-3 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-2\')\">-2 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'-1\')\">-1 dB</button></td>";
+      if (!muted) {
+   
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"mute(\'"+tracknum[xx]+"\')\">MUTE</button></td>";
+
+      
+      }
+      else
+      {
+        mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'></td>";
+      }
+  
+      db_value=mkvolstr(trackvolume[xx]);
+	  
+
+
+	  if (muted) {
+		  mainstring+="<td class=\"namemuted\">";
+		  if (folder) {
+            mainstring+="**FOLDER**<br>";
+          }
+		mainstring+=trackname[xx]+"  <br>("+db_value+")"
+      }
+	  else
+	  {
+		  mainstring+="<td class=\"name\">";
+		if (folder) {
+            mainstring+="**FOLDER**<br>";
+          }
+	mainstring+=trackname[xx]+"  <br>("+db_value+")"
+	  }
+	 mainstring+="</td>";
+	  
+
+      if (muted) {
+
+     mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"unmute(\'"+tracknum[xx]+"\')\">UNMUTE</button></td>";
+      }
+      else
+      {
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'></td>";
+      }
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+1\')\">+1 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+2\')\">+2 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+3\')\">+3 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+4\')\">+4 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+5\')\">+5 dB</button></td>";
+      mainstring+="<td style=\'background-color:"+trackcolor[xx]+"\'><button onclick=\"volchg(\'"+tracknum[xx]+"\',\'+6\')\">+6 dB</button></td>";
+	  mainstring+="</tr>";
+        } /* filter end */
+      
+    }
+    
+	
+	
+
+	
+	mainstring+="</table>";
+	
+  
+  TrackTable.innerHTML=mainstring;
+
+
+
+
+/* now for the mute button table */
+
+
+
+/* alert(trackname); */
+
+	mutebuttoncount=0;
+	
+	mutemainstring="<table style=\'width:100%; border:20px solid; background-color:gray;\'><tr>";
+
+	
+    
+    for (var xx=0;xx<tracknum.length;xx++)
+    {
+	  var muted=parseInt(trackflags[xx]&8);
+	  var folder=parseInt(trackflags[xx]&1);
+
+      var xxx;
+      xxx=trackname[xx].includes(MuteFilterString);
+      if (xxx || (MuteFilterString == null)) {
+          
+    
+      mutebuttoncount+=1;
+ 
+  
+      
+      
+
+
+      if (!muted) {
+
+      mutemainstring+="<td style=\'border:5px solid gray;  background-color:"+trackcolor[xx]+"\'><button style=\'color:black; background-color:white\' onclick=\"togglemute(\'"+tracknum[xx]+"\')\">";
+	   if (folder) {
+            mutemainstring+="**FOLDER**<br>";
+          }
+
+      mutemainstring+=trackname[xx]+"</button></td>";
+
+      }
+      else
+      {
+      mutemainstring+="<td style=\'border:5px solid gray;  background-color:"+trackcolor[xx]+"\'><button style=\'color:black; background-color:red\' onclick=\"togglemute(\'"+tracknum[xx]+"\')\">";
+	   if (folder) {
+            mutemainstring+="**FOLDER**<br>";
+          }
+
+      mutemainstring+=trackname[xx]+"</button></td>";
+      }
+  
+     if (!(mutebuttoncount%MuteRowString)) {
+		mutemainstring+="</tr><tr>"
+	}
+
+        } /* filter end */
+      
+    }
+    
+	
+	
+
+	
+	mutemainstring+="</tr /table>";
+	
+  
+  TrackMuteTable.innerHTML=mutemainstring;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+function mute(tracknumber) {
+
+   wwr_req("SET/TRACK/"+tracknumber+"/MUTE/1");
+}
+
+function unmute(tracknumber) {
+
+   wwr_req("SET/TRACK/"+tracknumber+"/MUTE/0");
+}
+
+
+function togglemute(tracknumber) {
+
+/*alert(tracknumber);*/
+
+   wwr_req("SET/TRACK/"+tracknumber+"/MUTE/-1");
+}
+
+
+
+
+function volchg(tracknum,amount) {
+
+   wwr_req("SET/TRACK/"+tracknum+"/VOL/"+amount);
+}
+
+
+  
+ 
+
+function trackfilter() {
+
+  
+   FilterObject=document.getElementById("my_filter");
+
+   FilterString=FilterObject.value;
+   
+   show_my_filter.innerHTML=FilterString;
+ 
+}
+
+function mutetrackfilter() {
+
+  
+   MuteFilterObject=document.getElementById("my_mute_filter");
+
+   MuteFilterString=MuteFilterObject.value;
+   
+   show_my_mute_filter.innerHTML=MuteFilterString;
+ 
+}
+
+function updatemuterowcount() {
+
+  
+   MuteRowSizeObject=document.getElementById("muterowentry");
+
+   MuteRowString=MuteRowSizeObject.value;
+   
+   show_my_rowcols.innerHTML=MuteRowString;
+ 
+}
+
+   
+
+wwr_start();
+wwr_req_recur("TRACK",1000);
+
+
+/* <body onLoad="init();" */
+
+</script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" id="viewport-meta" content="" />
+</head>
+<body>
+    
+    
+<b>LJ3 Track Muter and Volume Adjuter for REAPER 01.01a by Larry Jost -  larry@workwebs.com 2023</b><p>
+If you add or move tracks, or change projects, please reload this browser session.
+<p></p>
+
+
+<br><br>
+Enter the Track Name String Filter and click in the text box: <p></p>
+<input type="text" id="my_filter" autofocus  onclick="trackfilter()"> <p></p>
+<b>Filter: <span  id="show_my_filter">not set</span></b><br>
+
+<br> <span id="TrackTable">initializing.</span><br>
+
+
+<br><br>
+Enter the Mute Track Name String Filter and click in the text box: <p></p>
+<input type="text" id="my_mute_filter" autofocus  onclick="mutetrackfilter()"> <p></p>
+<b>Filter: <span  id="show_my_mute_filter">not set</span></b><br>
+
+
+
+
+
+<br>
+Enter the number of mute buttons per row and click in the text box: <p></p>
+<input type="text" id="muterowentry" value=10 autofocus  onclick="updatemuterowcount()"> <p></p>
+<b>Buttons per row Count: <span  id="show_my_rowcols">Set to the default</span></b><br>
+
+<br> <span id="MuteRowCell">defaulted</span><br>
+
+<br> <span id="TrackMuteTable">initializing.</span><br>
+
+</body>
+</html>

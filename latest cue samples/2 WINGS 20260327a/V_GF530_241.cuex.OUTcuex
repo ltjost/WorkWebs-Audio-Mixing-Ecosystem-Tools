@@ -1,0 +1,24 @@
+time 0 
+/mtx/8/name ,s "*V GF530 241 running" 
+/bus/2/mute ,i 1 
+/bus/3/mute ,i 1 
+/cfg/amix/x ,i 0 
+/ch/19/mute ,i 1 
+/ch/20/mute ,i 1 
+/ch/21/mute ,i 1 
+/ch/22/mute ,i 1 
+/ch/36/mute ,i 1 
+/ch/23/mute ,i 1 
+/ch/24/mute ,i 1 
+/ch/25/mute ,i 1 
+/ch/26/mute ,i 1 
+/ch/28/mute ,i 1 
+/ch/29/mute ,i 1 
+/ch/30/mute ,i 1 
+/ch/31/mute ,i 1 
+/ch/32/mute ,i 1 
+/ch/33/mute ,i 1 
+/ch/34/mute ,i 1 
+/ch/35/mute ,i 1 
+/mtx/8/name ,s "V GF530 241 done" 
+kill
