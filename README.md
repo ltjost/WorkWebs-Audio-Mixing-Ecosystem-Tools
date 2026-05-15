@@ -1,3 +1,6 @@
+May 15 2026
+Now each piece of the system has its own folder into which the latesst items wil lbe placed.
+
 May 8 2026 - added a new Mixing Station config file for the WINGs
 
 v20260423a is the latest release!
