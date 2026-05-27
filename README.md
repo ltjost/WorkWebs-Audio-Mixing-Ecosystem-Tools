@@ -1,3 +1,6 @@
+May 27 2026
+Added to WING Cue commands:  TRACK_GATE_ON, TRACK_GATE_OFF, TRACK_EQ_ON, TRACK_EQ_OFF, TRACK_DYN_ON, TRACK_DYN_OFF, TRACK_PREINS_ON, TRACK_PREINS_OFF, TRACK_POSTINS_ON, TRACK_POSTINS_OFF 
+
 May 15 2026
 Now each piece of the system has its own folder into which the latesst items wil lbe placed.
 
