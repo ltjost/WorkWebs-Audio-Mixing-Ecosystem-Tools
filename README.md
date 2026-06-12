@@ -1,3 +1,5 @@
+June 12, 2026
+Corrected the Mixing Station editing setup to fix it to use the right colors for the bus tracks.
 May 27 2026
 Added to WING Cue commands:  TRACK_GATE_ON, TRACK_GATE_OFF, TRACK_EQ_ON, TRACK_EQ_OFF, TRACK_DYN_ON, TRACK_DYN_OFF, TRACK_PREINS_ON, TRACK_PREINS_OFF, TRACK_POSTINS_ON, TRACK_POSTINS_OFF 
 
