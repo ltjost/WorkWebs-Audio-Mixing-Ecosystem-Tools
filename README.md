@@ -1,10 +1,94 @@
+September 17 2026 B ADDENDA Added for a new BUILD cmd script for new WING CUE MUTE handling commands:
+
+
+
+WING CUES
+
+
+
+You can now build cues for WING that include these commands (much like SETLATESTDCA and SETTRACKTOLATESTDCA):
+
+Build2v013.cmd now includes the support for this command set:
+
+
+
+
+
+:: SETLATESTMUTEtoMUTE 
+
+:: sets the SETTOLATESTMUTEVALUE to MUTE
+
+
+
+:: SETLATESTMUTEtoUNMUTE
+
+:: sets the SETTOLATESTMUTEVALUE to UNMUTE
+
+
+
+:: SETTRACKTOLATESTMUTE
+
+:: sets the specified track to the latest specified SETLATESTMUTE designation
+
+:: SETTRACKTOLATESTMUTE|myTrackVar's name|
+
+
+
+This could be handy if you want to use  the SETLATESTDCA and SETTRACKTOLATESTDCA for major cues that take time to set up and then
+
+use SETLATESTMUTEtoMUTE, SETLATESTMUTEtoUNMUTE and SETTRACKTOLATESTMUTE 
+
+for quicker commands after your DCAs are set up.
+
+
+
+
+
+Cue Sample content:
+
+
+
+WING1|SETLATESTMUTEtoMUTE|
+
+WING1|SETTRACKTOLATESTMUTE  | w1cGabriel   | # Eric
+
+WING1|SETTRACKTOLATESTMUTE  | w1cKeith     | # Grimsby
+
+WING1|SETTRACKTOLATESTMUTE  | w1cChadly    | # Sebastian
+
+
+
+WING1|SETLATESTMUTEtoUNMUTE|
+
+WING1|SETTRACKTOLATESTMUTE  | w1cGabriel   | # Eric
+
+WING1|SETTRACKTOLATESTMUTE  | w1cKeith     | # Grimsby
+
+WING1|SETTRACKTOLATESTMUTE  | w1cChadly    | # Sebastian
+
+
+
+WING1|SETLATESTMUTEtoMUTE|
+
+WING1|SETTRACKTOLATESTMUTE  | w1cGabriel   | # Eric
+
+WING1|SETTRACKTOLATESTMUTE  | w1cKeith     | # Grimsby
+
+WING1|SETTRACKTOLATESTMUTE  | w1cChadly    | # Sebastian
+
+
+
+
+
+
+
 September 17 2026
 
-Now cues for mixed targets reside in the same cue files.  This is now VERION 2 of the CUE system.  
+Now cues for mixed targets reside in the same cue files.  This is now VERSION 2 of the CUE system.
 
-The documentation for the CUE SYSTEM is now separate form the rest for VERSION 2.  Specifically new: 
+The documentation for the CUE SYSTEM is now separate form the rest for VERSION 2.  Specifically new:
 
-•	WING now includes the ability to change track color when muting.  
+•	WING now includes the ability to change track color when muting.
 
 •	Cue files now include a target IP and Port for each OSC command allowing multiple devices to be impacted by a single cue file (1 or more WINGS + 1 or more X32s + 1 or more REAPERs + 1 or more of anything using OSC via passthrough commands.
 
@@ -22,7 +106,7 @@ Added to WING Cue commands:  TRACK\_GATE\_ON, TRACK\_GATE\_OFF, TRACK\_EQ\_ON, T
 
 
 May 15 2026
-Now each piece of the system has its own folder into which the latesst items wil lbe placed.
+Now each piece of the system has its own folder into which the latest items will be placed.
 
 
 
