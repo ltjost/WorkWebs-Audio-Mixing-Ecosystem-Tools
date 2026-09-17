@@ -1,8 +1,30 @@
+September 17 2026
+
+Now cues for mixed targets reside in the same cue files.  This is now VERION 2 of the CUE system.  
+
+The documentation for the CUE SYSTEM is now separate form the rest for VERSION 2.  Specifically new: 
+
+•	WING now includes the ability to change track color when muting.  
+
+•	Cue files now include a target IP and Port for each OSC command allowing multiple devices to be impacted by a single cue file (1 or more WINGS + 1 or more X32s + 1 or more REAPERs + 1 or more of anything using OSC via passthrough commands.
+
+
+
+The 2 WING mixer has its own folder for tooling.
+
+
+
+
+
 May 27 2026
-Added to WING Cue commands:  TRACK_GATE_ON, TRACK_GATE_OFF, TRACK_EQ_ON, TRACK_EQ_OFF, TRACK_DYN_ON, TRACK_DYN_OFF, TRACK_PREINS_ON, TRACK_PREINS_OFF, TRACK_POSTINS_ON, TRACK_POSTINS_OFF 
+Added to WING Cue commands:  TRACK\_GATE\_ON, TRACK\_GATE\_OFF, TRACK\_EQ\_ON, TRACK\_EQ\_OFF, TRACK\_DYN\_ON, TRACK\_DYN\_OFF, TRACK\_PREINS\_ON, TRACK\_PREINS\_OFF, TRACK\_POSTINS\_ON, TRACK\_POSTINS\_OFF
+
+
 
 May 15 2026
 Now each piece of the system has its own folder into which the latesst items wil lbe placed.
+
+
 
 May 8 2026 - added a new Mixing Station config file for the WINGs
 
