@@ -3,7 +3,7 @@
   "creator": "WING Edit",
   "creator_vers": "3.3.4",
   "creator_model": "wing",
-  "creator_name": "WING-LJ-1",
+  "creator_name": "Wing-Edit",
   "ae_data": {
     "cfg": {
       "mainlink": "OFF",
@@ -22887,8 +22887,8 @@
             "pan": 0
           },
           "6": {
-            "on": true,
-            "lvl": -0.200000763,
+            "on": false,
+            "lvl": -144,
             "pon": false,
             "mode": "POST",
             "plink": 1,
