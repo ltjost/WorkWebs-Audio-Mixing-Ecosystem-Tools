@@ -1,3 +1,57 @@
+October 22, 2026
+
+
+
+Reorganized the repository in github
+
+
+
+Added references to Mouse Without Borders
+
+
+
+Updated the Generic REAPER for 128 track recording/playback.
+
+
+
+New Mixing Station layers - removed button for turning off insert 2...changed naming of AMIX 1 and 2 to X and Y
+
+
+
+Changed Mute Group labels to prefix with a number and then space instead of colon
+
+
+
+WING config reverbs changed to add saturation
+
+
+
+Record Flow revised.
+
+
+
+Passthrough and other compressors made the same in parallel flow paths to prevent latency differences.
+
+
+
+Commented out DELAY in  the CUe Build Script.
+
+
+
+Pulled user configurable portions of the BUILD and RUN scripts into separate .cmd files so they can be modified for their content without editing the main code file.
+
+
+
+Added the ability to create cue content lines in Excel exported as text files and included in cues via cue lines.
+
+
+
+Provided a sample Excel file for cue development. VARIABLEFROMFILE\_40chans\_1 version 20261016a.xlsx
+
+
+
+Used the WING OSC node syntax to allow these cues to make major changes in almost no time.
+
 September 17 2026 B ADDENDA Added for a new BUILD cmd script for new WING CUE MUTE handling commands:
 
 
@@ -14,7 +68,7 @@ Build2v013.cmd now includes the support for this command set:
 
 
 
-:: SETLATESTMUTEtoMUTE 
+:: SETLATESTMUTEtoMUTE
 
 :: sets the SETTOLATESTMUTEVALUE to MUTE
 
@@ -36,7 +90,7 @@ Build2v013.cmd now includes the support for this command set:
 
 This could be handy if you want to use  the SETLATESTDCA and SETTRACKTOLATESTDCA for major cues that take time to set up and then
 
-use SETLATESTMUTEtoMUTE, SETLATESTMUTEtoUNMUTE and SETTRACKTOLATESTMUTE 
+use SETLATESTMUTEtoMUTE, SETLATESTMUTEtoUNMUTE and SETTRACKTOLATESTMUTE
 
 for quicker commands after your DCAs are set up.
 
