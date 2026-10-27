@@ -1,3 +1,11 @@
+October 26 2026
+
+The WING variablefromfile 40 chans 1 excel was updated to prevent the OSC line for channel names from exceeding 1024 characters.
+
+This impacted the documentation, sample cue 10, and the .txt pulled form the excel file sample.
+
+
+
 October 22, 2026
 
 
