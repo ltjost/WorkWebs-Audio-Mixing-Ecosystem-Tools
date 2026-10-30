@@ -1,4 +1,18 @@
-October 26 2026
+October 30 2026
+
+ Updated VARIABLEFROMFILE_40_CHANS_1 is now version 20261026b.
+
+ The spreadsheet no longer updates the channel name color to match the DCA.
+
+Added UTILITY_outputroutes_1 version 20261030a.xlsx to allow a grid-based setup for output routing for the WING.
+
+Added UTILITY_inputroutes_1 version 20261030a.xlsx to allow a grid-based setup for input settings for channels for the WING.
+Main and Alt sources can be selected from a grid and the individual/global and initial source choice are able to be set.
+
+Added UTILITY_inputs_1 version 20261028b.xlsx to allow naming and color coding and icon setting, etc. for WING Inputs.
+
+Updated the generic 2 WING snapshots.  For W1 this changes channel 37 to be an input from an external LR source. 
+Some reverb changes were also made.October 26 2026
 
 The WING variablefromfile 40 chans 1 excel was updated to prevent the OSC line for channel names from exceeding 1024 characters.
 
