@@ -1,0 +1,71 @@
+WING1|CUSTOMStartCue|"Cue 30 Running"|
+REAPER1|#|ACTIONi|40157|
+REAPER1|#|LASTMARKERName||"Cue 30"|
+
+WING1|#| --------- overall auto mix - everyone is in X excluding ENS-only ----------------------
+
+WING1|AUTOMIXXOFF|
+
+
+WING1|SETLATESTDCA|w1dcaOTHER|w1dOTHER|"."|
+
+WING1|SETLATESTDCA|w1dcaENS1|w1dENS1|"."|
+
+WING1|SETLATESTDCA|w1dcaENS2|w1dENS2|"."|
+
+WING1|SETLATESTDCA|w1dcaENS3|w1dENS3|"."|
+
+WING1|SETLATESTDCA|w1dcaENS4|w1dENS4|"."|
+
+WING1|SETLATESTDCA|xxx|
+WING1|SETTRACKTOLATESTDCA  | w1cCaroline  | # Ariel
+WING1|SETTRACKTOLATESTDCA  | w1cGabriel   | # Eric
+WING1|SETTRACKTOLATESTDCA  | w1cKeith     | # Grimsby
+WING1|SETTRACKTOLATESTDCA  | w1cChadly    | # Sebastian
+WING1|SETTRACKTOLATESTDCA  | w1cAnna      | # Flounder
+WING1|SETTRACKTOLATESTDCA  | w1cMargery   | # Ursula
+WING1|SETTRACKTOLATESTDCA  | w1cJohn      | # Triton
+WING1|SETTRACKTOLATESTDCA  | w1cJudah     | # Chef Louis
+WING1|SETTRACKTOLATESTDCA  | w1cBridget   | # Scuttle
+WING1|SETTRACKTOLATESTDCA  | w1cDylan     | # Flotsam
+WING1|SETTRACKTOLATESTDCA  | w1cElijah    | # Jetsam
+WING1|SETTRACKTOLATESTDCA  | w1cSyr       | # Pilot
+WING1|SETTRACKTOLATESTDCA  | w1cKatelyn   | # Aquata Princess 1
+WING1|SETTRACKTOLATESTDCA  | w1cNadja     | # Andrina Princess 2 Gull
+WING1|SETTRACKTOLATESTDCA  | w1cRachelP   | # Arista Princess 3
+WING1|SETTRACKTOLATESTDCA  | w1cMaura     | # Atina Princess 4
+WING1|SETTRACKTOLATESTDCA  | w1cJacklyn   | # Adella Princess 5
+WING1|SETTRACKTOLATESTDCA  | w1cSarah     | # Allana Princess 6 -Ariel US-
+WING1|SETTRACKTOLATESTDCA  | w1cRebecca   | # Maid Gull
+WING1|SETTRACKTOLATESTDCA  | w1cAnnie     | # Maid
+WING1|SETTRACKTOLATESTDCA  | w1cKara      | # Maid
+WING1|SETTRACKTOLATESTDCA  | w1cGenevieve | # Leeward
+WING1|SETTRACKTOLATESTDCA  | w1cJocelyn   | # Windward
+WING1|SETTRACKTOLATESTDCA  | w1cDavid     | # Sailor Chef
+WING1|SETTRACKTOLATESTDCA  | w1cRobert    | # Sailor Chef
+WING1|SETTRACKTOLATESTDCA  | w1cThomas    | # Sailor Chef
+WING1|SETTRACKTOLATESTDCA  | w1cBill      | # Sailor Chef
+WING1|SETTRACKTOLATESTDCA  | w1cDennis    | # Sailor Chef -CHef Louis US-
+WING1|SETTRACKTOLATESTDCA  | w1cJoshua    | # Sailor Chef -Grimsby US-
+WING1|SETTRACKTOLATESTDCA  | w1cRachelS   | # -MerSister US-
+WING1|SETTRACKTOLATESTDCA  | w1cRay       | # Sailor Chef -Triton US-
+WING1|SETTRACKTOLATESTDCA  | w1cWilliam   | # Gull -Eric US-
+WING1|SETTRACKTOLATESTDCA  | w1cJen       | # -Ursula US-
+WING1|SETTRACKTOLATESTDCA  | w1cPriscilla | # Gull
+
+WING1|SETTRACKTOLATESTDCA  | w1cOS1       | # -offstage mic 1
+WING1|SETTRACKTOLATESTDCA  | w1cOS2       | # -offstage mic 2
+WING1|SETTRACKTOLATESTDCA  | w1cOS3       | # -offstage mic 3
+WING1|SETTRACKTOLATESTDCA  | w1cOS4       | # -offstage mic 4
+
+
+WING1|#| --unmute the DCAs
+
+WING1|TRACKMUTE|w1dOTHER|UNMUTE|
+WING1|TRACKMUTE|w1dENS1|UNMUTE|
+WING1|TRACKMUTE|w1dENS2|UNMUTE|
+WING1|TRACKMUTE|w1dENS3|UNMUTE|
+WING1|TRACKMUTE|w1dENS4|UNMUTE|
+
+
+WING1|CUSTOMEndCue|"Cue 30 Done"|
